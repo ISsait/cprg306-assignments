@@ -5,7 +5,8 @@ export default function StudentInfo() {
     return (
       <div>
         <h1>Student Information: Ian Stoesz</h1>
-        <p>GitHub Repo URL: <Link className={linkStyle} href="https://github.com/ISsait/cprg306-assignments.git">ISsait</Link></p>        
+        <p>GitHub Repo URL: <Link className={linkStyle} href="https://github.com/ISsait/cprg306-assignments.git">ISsait</Link></p>
+        <p><Link className={linkStyle} href="./">Home</Link></p>
       </div>
     );
 }
