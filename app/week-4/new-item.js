@@ -19,7 +19,7 @@ export default function NewItem() {
     console.log(newItem);
 
     alert(
-      `New item: ${newItem.name}, quantity: ${newItem.quantity}, category: ${newItem.category} has been added to the list!`
+      `New item: ${newItem.name}\nquantity: ${newItem.quantity}\ncategory: ${newItem.category}\nhas been added to the list!`
     );
 
     setName("");
@@ -28,31 +28,42 @@ export default function NewItem() {
   }
 
   return (
-    <form onSubmit={handleOnSubmit} className="flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center space-y-4 max-w-6/12 bg-green-950 w-full max-w-md p-5 rounded-lg pt-2">
-        <h1 className="text-2xl text-green-200">Add New Item</h1>
-        <input
-          required
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          placeholder="Item name"
-          className="text-black text-center rounded-md"
-        />
-        <input
-          required
-          type="number"
-          value={quantity}
-          min="1"
-          max="99"
-          onChange={(event) => setQuantity(Number(event.target.value))}
-          className="number-input text-black text-center rounded-md"
-        />
+    <form
+      onSubmit={handleOnSubmit}
+      className="flex items-center justify-center"
+    >
+      <div className="grid grid-cols-2 gap-4 items-center justify-center max-w-6/12 bg-green-950 max-w-md p-5 pt-2 mt-10 rounded-lg border-solid border-2 border-sky-300">
+        <h1 className="flex text-2xl text-sky-300 col-span-2 justify-center">
+          Add New Item
+        </h1>
+        <label>
+          Item Name
+          <input
+            required
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Item name"
+            className="text-black text-center rounded-md w-full h-8"
+          />
+        </label>
+        <label>
+          Quantity
+          <input
+            required
+            type="number"
+            value={quantity}
+            min="1"
+            max="99"
+            onChange={(event) => setQuantity(Number(event.target.value))}
+            className="number-input text-black text-center rounded-md w-full h-8"
+          />
+        </label>
         <select
           required
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-          className="text-black text-center rounded-md"
+          className="text-black text-center rounded-md col-span-2 h-8"
         >
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
@@ -66,7 +77,7 @@ export default function NewItem() {
           <option value="Household">Household</option>
           <option value="Other">Other</option>
         </select>
-        <button className="bg-blue-800 hover:bg-blue-500 active:bg-yellow-300 text-white font-bold py-2 px-4 rounded-md">
+        <button className="bg-blue-800 hover:bg-blue-500 active:bg-yellow-300 text-white font-bold py-2 px-4 rounded-md col-span-2">
           Add Item
         </button>
       </div>

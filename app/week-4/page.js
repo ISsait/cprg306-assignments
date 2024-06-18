@@ -8,7 +8,7 @@ export default function Page() {
       <div>
         <NewItem />
       </div>
-      <div className="my-10">
+      <div className="flex my-20 w-full items-center justify-center">
         <Link className={linkStyle} href="./">
           Home
         </Link>
