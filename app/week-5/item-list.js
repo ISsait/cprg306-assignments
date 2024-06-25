@@ -28,16 +28,16 @@ export default function ItemList() {
       <div className="grid grid-cols-2">
         <button
           onClick={() => handleSortByNameClick()}
-          className={`cursor-pointer text-black hover:text-blue-700 bg-green-300 rounded-md m-4 p-2 border-solid border-green-800 border-2 ${
-            sortBy === "name" ? "text-red-500 bg-green-700" : ""
+          className={`cursor-pointer text-black hover:text-white bg-blue-600 rounded-md m-4 p-2 border-solid border-green-800 border-2 ${
+            sortBy === "name" ? "text-red-500 bg-blue-300" : ""
           }`}
         >
           Sort by Name
         </button>
         <button
           onClick={() => handleSortByCategoryClick()}
-          className={`cursor-pointer text-black hover:text-blue-700 bg-green-300 rounded-md m-4 p-2 border-solid border-green-800 border-2 ${
-            sortBy === "category" ? "text-red-500 bg-green-700" : ""
+          className={`cursor-pointer text-black hover:text-white bg-blue-600 rounded-md m-4 p-2 border-solid border-green-800 border-2 ${
+            sortBy === "category" ? "text-red-500 bg-blue-300" : ""
           }`}
         >
           Sort by Category
