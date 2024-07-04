@@ -28,8 +28,6 @@ export default function NewItem({onAddItem}) {
       category,
     };
 
-    console.log(newItem);
-
     onAddItem(newItem);
 
     setName("");

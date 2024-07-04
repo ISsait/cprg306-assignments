@@ -5,10 +5,9 @@ import { useState } from "react";
 
 export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
-  console.log(items);
-
+  
+  // Create a defensive copy of the items array
   const itemsData = [...items];
-  console.log("itemsData", itemsData);
 
   if (sortBy === "name") {
     itemsData.sort((a, b) => a.name.localeCompare(b.name));
@@ -18,12 +17,10 @@ export default function ItemList({ items }) {
 
   function handleSortByNameClick() {
     setSortBy("name");
-    console.log(sortBy);
   }
 
   function handleSortByCategoryClick() {
     setSortBy("category");
-    console.log(sortBy);
   }
 
   return (
