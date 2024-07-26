@@ -26,7 +26,9 @@ export default function SignInPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold text-center">Shopping List Authentication Page</h1>
+      <h1 className="text-2xl font-extrabold text-center m-10">
+        Shopping List Authentication Page
+      </h1>
       {user ? (
         // user is logged in
         <div className="flex flex-col items-center">
@@ -59,8 +61,15 @@ export default function SignInPage() {
           </button>
         </div>
       )}
-      <footer className="flex flex-col items-center fixed bottom-10">
-        <Link className="border-solid border-2 border-blue-950 rounded-md bg-blue-800 hover:underline hover:bg-blue-500 p-2 m-2" href="./">Home</Link>
+      <footer className="flex flex-col items-center fixed bottom-10 w-full">
+        <p>
+          <Link
+            className="border-solid border-2 border-blue-950 rounded-md bg-blue-800 hover:underline hover:bg-blue-500 p-2 m-2"
+            href="./"
+          >
+            Home
+          </Link>
+        </p>
       </footer>
     </div>
   );

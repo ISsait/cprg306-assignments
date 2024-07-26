@@ -31,13 +31,15 @@ export default function Page() {
     setItems(updatedItems);
   };
 
-  const {user} = useUserAuth();
+  const { user } = useUserAuth();
   console.dir(user); // sensitive user data
   return (
     <main className="m-4">
       {user ? (
         <div>
-          <p>Logged in as: {user.displayname}</p>
+          <span className="grid grid-cols-2">
+            <p>Logged in as: {user.email}</p>
+          </span>
           <h1 className="p-3 text-3xl font-serif border">Shopping List</h1>
           <div>
             <NewItem onAddItem={handleAddItem} />
