@@ -55,7 +55,7 @@ export default function Page() {
 
       <div>
         <Link className={linkStyle} href="./">
-          Home
+          Back to sign in page
         </Link>
       </div>
     </main>
