@@ -35,7 +35,7 @@ export default function MealIdeas({ ingredient }) {
   return (
     <section className="m-12 mt-0 p-2 hover:bg-slate-400 list-disc list-inside bg-slate-600">
       <span className="text-orange-300">
-        Here's some recipes that use {ingredientString}:
+        Here are some recipes that use {ingredientString}:
       </span>
       <ul className="list-disc list-inside">
         {recipes.map((recipe) => (
