@@ -26,12 +26,11 @@ export default function SignInPage() {
 
   return (
     <div>
-      <h1 className="text-2xl">Shopping List Authentication Page</h1>
+      <h1 className="text-2xl font-extrabold text-center">Shopping List Authentication Page</h1>
       {user ? (
         // user is logged in
-        <div>
-          <p>Welcome {user.displayName}</p>
-          <p>Email {user.email}</p>
+        <div className="flex flex-col items-center">
+          <p>Welcome {user.email}</p>
           <img
             className="w-12 h-12 rounded-full m-2"
             src={user.photoURL}
@@ -51,7 +50,7 @@ export default function SignInPage() {
         </div>
       ) : (
         // user is not logged in
-        <div>
+        <div className="flex flex-col items-center">
           <button
             onClick={handleSignIn}
             className="text-lg border-solid border-2 border-blue-950 rounded-md bg-blue-800 hover:underline hover:bg-blue-500 p-2 m-2"
@@ -60,9 +59,9 @@ export default function SignInPage() {
           </button>
         </div>
       )}
-      <span className="border-solid border-2 border-blue-950 rounded-md bg-blue-800 hover:underline hover:bg-blue-500 p-2 m-2">
-        <Link href="./">Home</Link>
-      </span>
+      <footer className="flex flex-col items-center fixed bottom-10">
+        <Link className="border-solid border-2 border-blue-950 rounded-md bg-blue-800 hover:underline hover:bg-blue-500 p-2 m-2" href="./">Home</Link>
+      </footer>
     </div>
   );
 }
