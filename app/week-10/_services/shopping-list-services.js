@@ -5,7 +5,8 @@ import { collection, getDocs, addDoc, query, doc, getDoc } from "firebase/firest
 // add an item to the db
 export async function dbAddItem (user, newItem) {
   try {
-const docRef = await addDoc(collection(db, "users", user.uid, "items"), newItem);
+    const docRef = await addDoc(collection(db, "users", user.uid, "items"), newItem);
+    console.log("Item added to db", docRef.id);
   } catch (error) {
     console.error("Error adding item: ", error);
   }
