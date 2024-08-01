@@ -39,7 +39,7 @@ export default function SignInPage() {
             alt="User avatar"
           />
           <span className="text-lg bg-green-600 hover:bg-green-300 hover:underline border-solid border-2 border-yellow-300 rounded-md m-2 p-2">
-            <Link href="./week-8/shopping-list/">Go To Your Shopping List</Link>
+            <Link href="./week-10/shopping-list/">Go To Your Shopping List</Link>
           </span>
           <span>
             <button

@@ -6,6 +6,7 @@ import { useState } from "react";
 import itemsData from "./items.json";
 import Link from "next/link";
 import { useUserAuth } from "../_utils/auth-context";
+import {dbAddItem} from "../_services/shopping-list-services";
 
 export default function Page() {
   const linkStyle = "underline text-cyan-600 hover:text-cyan-300";
@@ -14,10 +15,13 @@ export default function Page() {
     selected: false,
   }));
   const [items, setItems] = useState(modImportedItems);
+  
+  const { user } = useUserAuth();
 
   const handleAddItem = (newItem) => {
     setItems((prevItems) => [...prevItems, newItem]);
     console.log("updated items", items);
+    dbAddItem(user, newItem);
   };
 
   const handleClick = (item) => {
@@ -31,8 +35,6 @@ export default function Page() {
     setItems(updatedItems);
   };
 
-  const { user } = useUserAuth();
-  console.dir(user); // sensitive user data
   return (
     <main className="m-4">
       {user ? (
