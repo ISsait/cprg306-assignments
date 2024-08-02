@@ -2,25 +2,27 @@
 
 import ItemList from "./item-list";
 import NewItem from "./new-item";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import itemsData from "./items.json";
 import Link from "next/link";
 import { useUserAuth } from "../_utils/auth-context";
-import {dbAddItem} from "../_services/shopping-list-services";
+import {dbAddItem, dbGetItems} from "../_services/shopping-list-services";
 
 export default function Page() {
   const linkStyle = "underline text-cyan-600 hover:text-cyan-300";
-  const modImportedItems = itemsData.map((item) => ({
-    ...item,
-    selected: false,
-  }));
-  const [items, setItems] = useState(modImportedItems);
-  
+
   const { user } = useUserAuth();
+
+  const [items, setItems] = useState([]);
+    useEffect( () => {
+        if(user){
+        dbGetItems(user, setItems);
+        }
+    }, [user]);
 
   const handleAddItem = (newItem) => {
     setItems((prevItems) => [...prevItems, newItem]);
-    console.log("updated items", items);
+    // console.log("updated items", items);
     dbAddItem(user, newItem);
   };
 
@@ -53,7 +55,7 @@ export default function Page() {
       ) : (
         <div>
           <p>You must be logged in to view this page</p>
-          <Link href="/week-8/">Click here to return to the sign in page</Link>
+          <Link href="/week-10/">Click here to return to the sign in page</Link>
         </div>
       )}
 
@@ -62,6 +64,7 @@ export default function Page() {
           Back to sign in page
         </Link>
       </div>
+      <button onClick={() => dbGetItems(user)}>test</button>
     </main>
   );
 }

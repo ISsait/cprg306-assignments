@@ -7,12 +7,11 @@ export default function ItemList({ items, onHandleClick }) {
   const [sortBy, setSortBy] = useState("name");
   
   // Create a defensive copy of the items array
-  const itemsData = [...items];
 
   if (sortBy === "name") {
-    itemsData.sort((a, b) => a.name.localeCompare(b.name));
+    items.sort((a, b) => a.name.localeCompare(b.name));
   } else if (sortBy === "category") {
-    itemsData.sort((a, b) => a.category.localeCompare(b.category));
+    items.sort((a, b) => a.category.localeCompare(b.category));
   }
 
   function handleSortByNameClick() {
@@ -43,7 +42,7 @@ export default function ItemList({ items, onHandleClick }) {
           Sort by Category
         </button>
       </div>
-      {itemsData.map((item) => (
+      {items.map((item) => (
         <Item
           key={item.id}
           item={item}

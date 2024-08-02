@@ -23,18 +23,17 @@ export async function dbAddItem (user, newItem) {
 // }
 
 
-// // get all items from db
-// import { collection, query, where, getDocs } from "firebase/firestore";
- 
-// const qgetItems = query(
-//   collection(db, "users", "user1", "items"),
-//   where("quantity", ">", 1)
-// );
-// const querySnapshot = await getDocs(q);
-// querySnapshot.forEach((doc) => {
-//   console.log(doc.id, " => ", doc.data());
-// });
-
+// get all items from db
+export async function dbGetItems(user, setItemsList) {
+  try {
+    const q = query(collection(db, "users", user.uid, "items"));
+    const querySnapshot = await getDocs(q);
+    const items = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    setItemsList(items);
+  } catch (error) {
+    console.error("Error getting items: ", error);
+  }
+}
 
 // // update an item in the db
 // import { doc, updateDoc } from "firebase/firestore";
