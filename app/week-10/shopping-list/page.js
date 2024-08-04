@@ -3,10 +3,9 @@
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import { useState, useEffect } from "react";
-import itemsData from "./items.json";
 import Link from "next/link";
 import { useUserAuth } from "../_utils/auth-context";
-import {dbAddItem, dbGetItems} from "../_services/shopping-list-services";
+import { dbAddItem, dbGetItems } from "../_services/shopping-list-services";
 
 export default function Page() {
   const linkStyle = "underline text-cyan-600 hover:text-cyan-300";
@@ -14,11 +13,12 @@ export default function Page() {
   const { user } = useUserAuth();
 
   const [items, setItems] = useState([]);
-    useEffect( () => {
-        if(user){
-        dbGetItems(user, setItems);
-        }
-    }, [user]);
+  
+  useEffect(() => {
+    if (user) {
+      dbGetItems(user, setItems);
+    }
+  }, [user]);
 
   const handleAddItem = (newItem) => {
     setItems((prevItems) => [...prevItems, newItem]);
